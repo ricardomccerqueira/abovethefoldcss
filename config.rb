@@ -1,0 +1,5 @@
+http_path = "www/"
+css_dir = "www/assets/css"
+sass_dir = "src/sass"
+images_dir = "www/assets/images"
+javascripts_dir = "www/assets/scripts"

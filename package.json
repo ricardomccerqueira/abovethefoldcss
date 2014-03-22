@@ -1,0 +1,30 @@
+{
+  "name": "none",
+  "version": "0.0.1",
+  "repository" :
+  { 
+    "type" : "git"
+  , "url" : "https://github.com/none.git"
+  },
+  "description": "none",
+  "author": "none",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-compass": "~0.6.0",
+    "grunt-contrib-haml": "~0.1.1",
+    "grunt-htmlcompressor": "*",
+    "grunt-contrib-coffee": "~0.8.0"
+  },
+  "dependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-compass": "~0.6.0",
+    "grunt-contrib-haml": "~0.1.1",
+    "grunt-htmlcompressor": "*",
+    "grunt-contrib-coffee": "~0.8.0"
+  }
+}
