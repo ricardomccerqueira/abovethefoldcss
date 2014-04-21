@@ -3,6 +3,14 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    abovethefoldcss: {
+      options: {
+        css: 'www/assets/css/main.css',
+        aboveTheFold: 'www/index.html'
+      },
+      build: {
+      }
+    },
     coffee: {
       compile: {
         options: {
@@ -57,7 +65,7 @@ module.exports = function(grunt) {
       },
       hamlsrc: {
         files: ['src/haml/**/*.haml'],
-        tasks: ['haml']
+        tasks: ['haml', 'compass', 'abovethefoldcss']
       },
       coffee: {
         files: 'src/coffee/**/*.coffee',
@@ -69,7 +77,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: 'src/sass/**/*.sass',
-        tasks: 'compass'
+        tasks: ['haml', 'compass', 'abovethefoldcss']
       },
       htmlcompressor: {
         files: 'src/html/*',
@@ -78,6 +86,7 @@ module.exports = function(grunt) {
     }
   });
   
+  grunt.loadNpmTasks('grunt-abovethefoldcss');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -86,4 +95,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-htmlcompressor');
 
   grunt.registerTask('default', ['watch']);
-}; 
+};
+
+
