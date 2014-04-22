@@ -11,26 +11,6 @@ module.exports = function(grunt) {
       build: {
       }
     },
-    coffee: {
-      compile: {
-        options: {
-          bare: true
-        },
-        files: {
-          'src/js/parser.js': ['src/coffee/*.coffee']
-        }
-      }
-    },
-    uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-      },
-      build: {
-        files: {
-          'www/assets/js/parser.js': 'src/js/parser.js'
-        }
-      }
-    },
     compass: {
       dev: {
         options: {
@@ -67,32 +47,17 @@ module.exports = function(grunt) {
         files: ['src/haml/**/*.haml'],
         tasks: ['haml', 'compass', 'abovethefoldcss']
       },
-      coffee: {
-        files: 'src/coffee/**/*.coffee',
-        tasks: 'coffee'
-      },
-      js: {
-        files: ['src/js/*.js'],
-        tasks: 'uglify'
-      },
       css: {
         files: 'src/sass/**/*.sass',
         tasks: ['haml', 'compass', 'abovethefoldcss']
-      },
-      htmlcompressor: {
-        files: 'src/html/*',
-        tasks: 'htmlcompressor'
       }
     }
   });
   
   grunt.loadNpmTasks('grunt-abovethefoldcss');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-coffee');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-haml');
-  grunt.loadNpmTasks('grunt-htmlcompressor');
 
   grunt.registerTask('default', ['watch']);
 };
