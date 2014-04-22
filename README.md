@@ -1,7 +1,11 @@
-above the fold css hack
-===================
+# grunt-abovethefoldcss - TEST PAGE
 
-parsing a css file into an above the fold and bellow the fold implementation
+checkout [master](https://github.com/ricardomccerqueira/abovethefoldcss) repo for the grunt task, and installation instructions
 
 
-It's a simple nodejs prototype working on a static generated HTML page, using a comment as a block, since even when using .sass we can generate a /*! comment that the compiler wont eat down.
+## Usage
+edit either **src/haml/index.html.haml** or **src/sass/main.sass** 
+
+and checkout the result on **www** folder
+
+for detailed instructions checkout the readme on [master](https://github.com/ricardomccerqueira/abovethefoldcss) repo
