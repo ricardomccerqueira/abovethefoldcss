@@ -72,8 +72,8 @@ sample css, everything inside each /*!ABOVE_THE_FOLD*/ comment will be removed f
 >If false it will replace the aboveTheFold file contents
 
 ##### options.stylePattern
-This is the empty styletag on the html file, by default: **style datafor='abovethefold'**. 
+>This is the empty styletag on the html file, by default: **style datafor='abovethefold'**. 
 
 ##### options.sassPattern
-This is the comment pattern inside the sass file, remember to include the **!** as this makes sure the comment gets passed to the css
+>This is the comment pattern inside the sass file, remember to include the **!** as this makes sure the comment gets passed to the css
 
