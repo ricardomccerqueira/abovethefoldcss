@@ -5,13 +5,14 @@
 
 
 ## Getting Started
-There is no npm installer for now
+There is no npm installer for now.
+
 Copy grunt-abovethefoldcss to node_modules folder
 
 
 ## Usage Examples
 
-checkout [testpage](https://github.com/ricardomccerqueira/abovethefoldcss/blob/testpage) repo for an example
+checkout [testpage](https://github.com/ricardomccerqueira/abovethefoldcss/blob/testpage) repo for a simple example
 
 ### grunt file
 sample options and npm task
@@ -63,10 +64,11 @@ sample css, everything inside each /*!ABOVE_THE_FOLD*/ comment will be removed f
 this file is the main css file after being compiled by sass
 
 ##### options.aboveTheFold
-this file is the above the fold container, it can either be an html file and replace the styletag, or an empty file and use a server side include to load it to the header
+this file is the above the fold container, it can either be an html file and replace the styletag, or an empty file and use a server side include to load it to the head
 
 ##### options.useEmptyStyleTag
-this defines the aboveTheFold behaviour, default true means it will compile into <style datafor='abovethefold'></style>. If false it will replace the aboveTheFold file contents
+this defines the aboveTheFold behaviour, if default it will compile into **style datafor='abovethefold'**. 
+If false it will replace the aboveTheFold file contents
 
 ##### options.pattern
-This is the comment inside the sass file, remember to include the **!** as this makes sure the comment gets passed to the css
+This is the comment pattern inside the sass file, remember to include the **!** as this makes sure the comment gets passed to the css
