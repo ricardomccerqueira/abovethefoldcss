@@ -5,11 +5,29 @@ module.exports = function(grunt) {
         done             = this.async(),
         config = {
           cssFile           : this.options().css,
-          aboveTheFoldFile  : this.options().aboveTheFold,
+          aboveTheFoldFiles : this.options().aboveTheFold,
           useEmptyStyleTag  : this.options().useEmptyStyleTag || true,
           sassPattern       : this.options().sassPattern || "/*!ABOVE_THE_FOLD */",
           stylePattern      : this.options().stylePattern || "<style datafor='abovethefold'></style>"
         };
+
+    var fileWritter = function(_file) {
+      var file = _file
+
+      fs.readFile(file,'utf8', function (err, data) {
+        htmlContents = data.replace(config.stylePattern,'<style>'+aboveTheFold+'</style>')
+
+        fs.writeFile(file, htmlContents, function (err) {
+          if (err) grunt.log.write( 'ERROR writting' + file + " => " + err);
+        });
+      });
+    }
+
+    var checkAboveFileType = function() {
+      if(typeof config.aboveTheFoldFiles == 'string') {
+        config.aboveTheFoldFiles = [config.aboveTheFoldFiles]
+      }
+    }
     
     fs.readFile(config.cssFile,'utf8', function (err, data) {
       if (err) grunt.log.write( 'ERROR reading' + config.cssFile + " => " + err);
@@ -25,17 +43,15 @@ module.exports = function(grunt) {
         }
       }
 
-      if(config.useEmptyStyleTag){
-        fs.readFile(config.aboveTheFoldFile,'utf8', function (err, data) {
-          htmlContents = data.replace(config.stylePattern,'<style>'+aboveTheFold+'</style>')
+      checkAboveFileType();
 
-          fs.writeFile(config.aboveTheFoldFile, htmlContents, function (err) {
-            if (err) grunt.log.write( 'ERROR writting' + config.aboveTheFoldFile + " => " + err);
-          });
-        });  
+      if(config.useEmptyStyleTag){
+        for(var a = 0; a < config.aboveTheFoldFiles.length; a++ ){
+          fileWritter(config.aboveTheFoldFiles[a]);
+        }  
       } else {
-        fs.writeFile(config.aboveTheFoldFile, aboveTheFold, function (err) {
-          if (err) grunt.log.write( 'ERROR writting' + config.aboveTheFoldFile + " => " + err);
+        fs.writeFile(config.aboveTheFoldFiles[0], aboveTheFold, function (err) {
+          if (err) grunt.log.write( 'ERROR writting' + config.aboveTheFoldFiles[0] + " => " + err);
         });
       }
         
