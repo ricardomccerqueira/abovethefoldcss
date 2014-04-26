@@ -4,7 +4,7 @@
   "repository" :
   { 
     "type" : "git"
-  , "url" : "https://github.com/none.git"
+  , "url" : "https://github.com/ricardomccerqueira/abovethefoldcss.git"
   },
   "description": "none",
   "author": "rcerqueira",
