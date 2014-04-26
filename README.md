@@ -23,7 +23,7 @@ abovethefoldcss: {
     css: 'path_to_css.css',
     aboveTheFold: 'path_to_above_the_fold_file.html',
     useEmptyStyleTag: true,
-    pattern: "/*!ABOVE_THE_FOLD */"
+    sassPattern: "/*!ABOVE_THE_FOLD */"
   },
   build: {
   }
@@ -61,14 +61,19 @@ sample css, everything inside each /*!ABOVE_THE_FOLD*/ comment will be removed f
 #### Options
  
 ##### options.css
-this file is the main css file after being compiled by sass
+>this file is the main css file after being compiled by sass
 
 ##### options.aboveTheFold
-this file is the above the fold container, it can either be an html file and replace the styletag, or an empty file and use a server side include to load it to the head
+>this file is the above the fold container, it can either be an html file and replace the styletag, or an empty file and use a server side include to load it to the head
 
 ##### options.useEmptyStyleTag
-this defines the aboveTheFold behaviour, if default it will compile into **style datafor='abovethefold'**. 
-If false it will replace the aboveTheFold file contents
+>this defines the aboveTheFold behaviour.
+>If true (default) it will compile into **style datafor='abovethefold'**. 
+>If false it will replace the aboveTheFold file contents
 
-##### options.pattern
+##### options.stylePattern
+This is the empty styletag on the html file, by default: **style datafor='abovethefold'**. 
+
+##### options.sassPattern
 This is the comment pattern inside the sass file, remember to include the **!** as this makes sure the comment gets passed to the css
+
