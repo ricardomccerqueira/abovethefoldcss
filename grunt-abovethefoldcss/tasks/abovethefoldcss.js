@@ -8,7 +8,7 @@ module.exports = function(grunt) {
           aboveTheFoldFile  : this.options().aboveTheFold,
           useEmptyStyleTag  : this.options().useEmptyStyleTag || true,
           sassPattern       : this.options().sassPattern || "/*!ABOVE_THE_FOLD */",
-          stylePattern      : this.options().sassPattern || "<style datafor='abovethefold'></style>"
+          stylePattern      : this.options().stylePattern || "<style datafor='abovethefold'></style>"
         };
     
     fs.readFile(config.cssFile,'utf8', function (err, data) {
